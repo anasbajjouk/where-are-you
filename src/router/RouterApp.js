@@ -27,8 +27,7 @@ const RouterApp = () => {
     <ThemeProvider theme={themeMode}>
       <Router history={history}>
         <GlobalStyles />
-        <NavBar />
-        <button onClick={themeToggler}>Switch</button>
+        <NavBar themeToggler={themeToggler} theme={myTheme} />
         <Switch>
           <Route exact path="/" component={Dashboard} />
           {/* <Route exact path="/login" component={Login} />
