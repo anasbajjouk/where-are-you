@@ -12,7 +12,7 @@ const Card = ({ country }) => {
           <img src={flag} alt={name} />
         </div>
         <div className="country_info">
-          <h5 className="country_info-title">{name}</h5>
+          <h5 className="country_info-title">{name.toUpperCase()}</h5>
           <div className="country_info-properties">
             <div>
               Population: <span>{population}</span>

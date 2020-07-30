@@ -5,8 +5,13 @@ export const CardContainer = styled.div`
   flex-direction: column;
   height: 30rem;
   border-radius: 7px;
-  box-shadow: 0.2rem 0.2rem 1rem 0.2rem #c8c8c8;
+  box-shadow: -1px 1px 10px 0.5px ${({ theme }) => theme.shadow};
   background-color: ${({ theme }) => theme.elements};
+  width: 230px;
+
+  @media only screen and (max-width: 360px) {
+    width: 360px;
+  }
 
   & .country_image {
     height: 50%;

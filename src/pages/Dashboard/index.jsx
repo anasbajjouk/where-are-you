@@ -5,12 +5,12 @@ import { DashboardContainer } from './styles'
 import FilterSection from '../../components/FilterSection/FilterSection'
 
 // import fetchData from '../../api'
-import Card from '../../components/Card/Card'
 import Grid from '../../components/Grid/Grid'
 
 const Dashboard = () => {
   const [countries, setCountries] = useState([])
   const URI = 'https://restcountries.eu/rest/v2/'
+  
   useEffect(() => {
     const fetchData = async (name) => {
       const response = await fetch(URI + 'all')
