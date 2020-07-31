@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { Router, Switch, Route } from 'react-router-dom'
 import history from '../common/history'
@@ -12,6 +12,7 @@ import { GlobalStyles } from '../common/globalStyles'
 import Page404 from '../pages/page-404/page-404.component'
 import Dashboard from '../pages/Dashboard'
 import NavBar from '../components/NavBar/NavBar'
+import CountryDetails from '../pages/CountryDetails'
 
 const RouterApp = () => {
   const [myTheme, themeToggler, mountedComponent] = useDarkMode()
@@ -30,12 +31,9 @@ const RouterApp = () => {
         <NavBar themeToggler={themeToggler} theme={myTheme} />
         <Switch>
           <Route exact path="/" component={Dashboard} />
-          {/* <Route exact path="/login" component={Login} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/favorites" component={Dashboard} />
-        <Route exact path="/plans" component={Dashboard} />
-        <Route exact path="/drafts" component={Dashboard} />
-        <Route exact path="/history" component={Dashboard} /> */}
+          <Route exact path="/country/:name">
+            <CountryDetails />
+          </Route>
           <Route component={Page404} />
         </Switch>
       </Router>

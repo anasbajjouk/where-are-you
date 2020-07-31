@@ -9,10 +9,13 @@ import Grid from '../../components/Grid/Grid'
 
 const Dashboard = () => {
   const [countries, setCountries] = useState([])
+  const [searchField, setSearchField] = React.useState('')
+  const [regions, setRegions] = React.useState('')
+
   const URI = 'https://restcountries.eu/rest/v2/'
-  
+
   useEffect(() => {
-    const fetchData = async (name) => {
+    const fetchData = async () => {
       const response = await fetch(URI + 'all')
       const data = await response.json()
       setCountries(data)
@@ -20,11 +23,46 @@ const Dashboard = () => {
     fetchData()
   }, [])
 
-  console.log(countries)
+  // const countryNameCapitalized =
+  //   searchField.charAt(0).toUpperCase() + searchField.slice(1)
+
+  const allRegions = () => {
+    const regions = countries.map((c) => c.region)
+    const regionSet = new Set(regions)
+
+    const filtered = [...regionSet].filter((el) => el !== '')
+    return filtered
+  }
+
+  const filteredCountries = React.useMemo(
+    () =>
+      countries.filter((country) => {
+        let countryNameLowerCased = searchField.toLowerCase()
+        let countryName = country.name.toLowerCase()
+        let region = country.region.toLowerCase()
+        let regionLowerCased = regions.toLowerCase()
+
+        if (
+          region.indexOf(regionLowerCased) > -1 &&
+          countryName.indexOf(countryNameLowerCased) > -1
+        ) {
+          return country
+        }
+
+        return null
+      }),
+    [countries, regions, searchField]
+  )
+
   return (
     <DashboardContainer>
-      <FilterSection />
-      <Grid countries={countries} />
+      <FilterSection
+        setSearchField={setSearchField}
+        searchField={searchField}
+        regions={allRegions()}
+        setRegions={setRegions}
+      />
+      <Grid countries={filteredCountries} />
     </DashboardContainer>
   )
 }

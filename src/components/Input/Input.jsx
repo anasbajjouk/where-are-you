@@ -1,12 +1,11 @@
 import React from 'react'
-import {} from '@fortawesome/fontawesome-svg-core'
 import { SearchContainer } from './styles'
 
-const Input = ({ mytheme }) => {
+const Input = ({ mytheme, setSearchField, searchField }) => {
   return (
     <SearchContainer>
       <span className="search_icon">
-        <ion-icon name="search" ></ion-icon>
+        <ion-icon name="search"></ion-icon>
       </span>
 
       <input
@@ -15,6 +14,8 @@ const Input = ({ mytheme }) => {
         name="countryName"
         placeholder="Search for a country"
         mytheme={mytheme}
+        onChange={(event) => setSearchField(event.target.value)}
+        value={searchField}
       />
     </SearchContainer>
   )

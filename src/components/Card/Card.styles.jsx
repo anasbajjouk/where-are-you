@@ -3,9 +3,9 @@ import styled from 'styled-components'
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 30rem;
+  height: 33rem;
   border-radius: 7px;
-  box-shadow: -1px 1px 10px 0.5px ${({ theme }) => theme.shadow};
+  box-shadow: 0px 0px 10px 0.5px ${({ theme }) => theme.shadow};
   background-color: ${({ theme }) => theme.elements};
   width: 230px;
 

@@ -1,13 +1,21 @@
 import React from 'react'
+import { withRouter } from 'react-router'
 
 import { CardContainer } from './Card.styles'
 
-const Card = ({ country }) => {
+const Card = ({ country, history }) => {
   const { flag, name, region, population, capital } = country
+
+  const handleClick = () => {
+    history.push({
+      pathname: 'country/' + name.trim(),
+      state: { country: name },
+    })
+  }
 
   return (
     <>
-      <CardContainer>
+      <CardContainer onClick={handleClick}>
         <div className="country_image">
           <img src={flag} alt={name} />
         </div>
@@ -15,7 +23,7 @@ const Card = ({ country }) => {
           <h5 className="country_info-title">{name.toUpperCase()}</h5>
           <div className="country_info-properties">
             <div>
-              Population: <span>{population}</span>
+              Population: <span>{population.toLocaleString()}</span>
             </div>
             <div>
               Region: <span>{region}</span>
@@ -30,4 +38,4 @@ const Card = ({ country }) => {
   )
 }
 
-export default Card
+export default withRouter(Card)
