@@ -4,15 +4,40 @@ import { withRouter } from 'react-router'
 import { CardContainer } from './Card.styles'
 
 const Card = ({ country, history }) => {
-  const { flag, name, region, population, capital } = country
+  const {
+    flag,
+    name,
+    region,
+    population,
+    capital,
+    nativeName,
+    subregion,
+    topLevelDomain,
+    currencies,
+    languages,
+    borders
+  } = country
 
   const handleClick = () => {
     history.push({
       pathname: 'country/' + name.trim(),
-      state: { country: name },
+      state: {
+        country: name,
+        nativeName,
+        population,
+        region,
+        subregion,
+        capital,
+        topLevelDomain,
+        currencies,
+        languages,
+        flag,
+        borders
+      },
     })
   }
 
+  console.log(country);
   return (
     <>
       <CardContainer onClick={handleClick}>

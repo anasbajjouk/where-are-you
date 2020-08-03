@@ -7,11 +7,7 @@ export const CardContainer = styled.div`
   border-radius: 7px;
   box-shadow: 0px 0px 10px 0.5px ${({ theme }) => theme.shadow};
   background-color: ${({ theme }) => theme.elements};
-  width: 230px;
 
-  @media only screen and (max-width: 360px) {
-    width: 360px;
-  }
 
   & .country_image {
     height: 50%;
