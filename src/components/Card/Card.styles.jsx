@@ -5,9 +5,14 @@ export const CardContainer = styled.div`
   flex-direction: column;
   height: 33rem;
   border-radius: 7px;
-  box-shadow: 0px 0px 10px 0.5px ${({ theme }) => theme.shadow};
+  box-shadow: 0px 0px 4px 0px ${({ theme }) => theme.shadow};
   background-color: ${({ theme }) => theme.elements};
+  cursor: pointer;
 
+  &:hover,
+  &:active {
+    transform: scale(1.03);
+  }
 
   & .country_image {
     height: 50%;
