@@ -4,20 +4,19 @@ export const DetailContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding: 2% 7%;
-  justify-content: space-between;
 
   font-size: ${({ theme }) => theme.typography.detailPage};
 
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.mobileS}) {
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mobileM}) {
     flex-direction: column;
   }
+  min-height: 93vh;
 `
 
 export const LeftSide = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
   & button {
     border: none;
@@ -31,8 +30,8 @@ export const LeftSide = styled.div`
     box-shadow: 0px 0px 4px 0px ${({ theme }) => theme.shadow};
     cursor: pointer;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.mobileS}) {
+    @media only screen and (max-width: ${({ theme }) =>
+        theme.breakpoints.mobileM}) {
       margin-top: 30px;
     }
 
@@ -50,8 +49,8 @@ export const LeftSide = styled.div`
     background-repeat: no-repeat;
     object-fit: contain;
 
-    @media only screen and (min-width: ${({ theme }) =>
-        theme.breakpoints.mobileS}) {
+    @media only screen and (max-width: ${({ theme }) =>
+        theme.breakpoints.mobileM}) {
       width: 300px;
     }
   }
@@ -60,6 +59,7 @@ export const LeftSide = styled.div`
 export const RightSide = styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: 40px;
   width: 800px;
 
   & h3 {
@@ -84,9 +84,10 @@ export const RightSide = styled.div`
     }
   }
 
-  @media only screen and (min-width: ${({ theme }) =>
-      theme.breakpoints.mobileS}) {
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mobileM}) {
     width: 100%;
+    margin-left: 0;
 
     & h3 {
       margin-top: 30px;
