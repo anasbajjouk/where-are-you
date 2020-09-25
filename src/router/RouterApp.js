@@ -31,6 +31,7 @@ const RouterApp = () => {
         <NavBar themeToggler={themeToggler} theme={myTheme} />
         <Switch>
           <Route exact path="/" component={Dashboard} />
+          <Route exact path="/where-are-you/" component={Dashboard} />
           <Route exact path="/country/:name">
             <CountryDetails />
           </Route>
