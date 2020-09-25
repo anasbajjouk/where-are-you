@@ -24,7 +24,6 @@ const CountryDetails = ({ location }) => {
 
   const borderNames = borders && borders.map((b) => b + ';').join('')
 
-  console.log('borders', borders)
   useEffect(() => {
     const fetchData = async () => {
       if (borderNames) {

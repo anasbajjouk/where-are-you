@@ -37,7 +37,6 @@ const Card = ({ country, history }) => {
     })
   }
 
-  console.log(country);
   return (
     <>
       <CardContainer onClick={handleClick}>

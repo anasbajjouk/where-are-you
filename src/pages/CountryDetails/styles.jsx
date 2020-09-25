@@ -5,7 +5,7 @@ export const DetailContainer = styled.div`
   flex-direction: row;
   padding: 2% 7%;
   justify-content: space-between;
-  align-items: center;
+
   font-size: ${({ theme }) => theme.typography.detailPage};
 
   @media only screen and (min-width: ${({ theme }) =>
@@ -53,7 +53,7 @@ export const LeftSide = styled.div`
     @media only screen and (min-width: ${({ theme }) =>
         theme.breakpoints.mobileS}) {
       width: 300px;
-    
+    }
   }
 `
 
