@@ -34,7 +34,7 @@ const CountryDetails = ({ location }) => {
       return null
     }
     fetchData()
-  })
+  }, [borderNames])
 
   return (
     <DetailContainer>
@@ -80,8 +80,10 @@ const CountryDetails = ({ location }) => {
           <span className="border_title"> Border Countries:</span>
 
           {borderCountries.length > 1
-            ? borderCountries.map((bc) => (
-                <span className="borders">{bc.name + ' '}</span>
+            ? borderCountries.map((bc, i) => (
+                <span className="borders" key={i}>
+                  {bc.name + ' '}
+                </span>
               ))
             : 'None'}
         </Borders>

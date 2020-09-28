@@ -1,6 +1,6 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import { Router, Switch, Route } from 'react-router-dom'
+import { Router, Switch, Route, useHistory } from 'react-router-dom'
 import history from '../common/history'
 import { useDarkMode } from '../hooks/useDarkMode'
 
@@ -24,6 +24,12 @@ const RouterApp = () => {
 
   if (!mountedComponent) return <div />
 
+  //Fast hack
+  const myString = 'where-are-you'
+  const stringInURLPath = history.location.pathname.includes('where-are-you')
+  const result = stringInURLPath && myString.replace('where-are-you', '')
+  result && history.push('/')
+
   return (
     <ThemeProvider theme={themeMode}>
       <Router history={history}>
@@ -31,7 +37,6 @@ const RouterApp = () => {
         <NavBar themeToggler={themeToggler} theme={myTheme} />
         <Switch>
           <Route exact path="/" component={Dashboard} />
-          <Route exact path="/where-are-you/" component={Dashboard} />
           <Route exact path="/country/:name">
             <CountryDetails />
           </Route>
